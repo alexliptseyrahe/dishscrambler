@@ -1,0 +1,15 @@
+{
+  "name": "dishscrambler",
+  "version": "1.0.0",
+  "description": "Scrambles up some all-American dishes",
+  "main": "index.js",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": "Alex Lindsay",
+  "license": "ISC",
+  "dependencies": {
+    "node-twitterbot": "^0.2.2",
+    "twit": "^2.2.9"
+  }
+}
