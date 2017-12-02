@@ -4,7 +4,12 @@
   "description": "Scrambles up some all-American dishes",
   "main": "index.js",
   "scripts": {
-    "test": "node bot.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+    "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/thedishscrambler.git"
   },
   "author": "Alex Lindsay",
   "license": "ISC",
