@@ -31,6 +31,12 @@ var Bot = new TwitterBot({
       }
       return dish;
       }
+      
+function capitalizeFirstLetter(dish) {
+    return dish.charAt(0).toUpperCase() + dish.slice(1);
+}
 
 var dish = generateDish(); 
-Bot.tweet(dish);
+var finalDish = capitalizeFirstLetter();
+
+Bot.tweet(finalDish);
