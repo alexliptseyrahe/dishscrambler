@@ -1,6 +1,8 @@
 var Twit = require('twit');
 var TwitterBot = require('node-twitterbot').TwitterBot;
 var _ = require('underscore');
+var s = require("underscore.string");
+
 var Bot = new TwitterBot({
  consumer_key: process.env.BOT_CONSUMER_KEY,
  consumer_secret: process.env.BOT_CONSUMER_SECRET,
@@ -33,12 +35,7 @@ var Bot = new TwitterBot({
       }
       
       
-var dish = generateDish(); 
-      
-function capitalizeFirstLetter(dish) {
-    return dish.charAt(0).toUpperCase() + dish.slice(1);
-}
+var dish = s.capitalize(generateDish()); 
+     
 
-var finalDish = capitalizeFirstLetter();
-
-Bot.tweet(finalDish);
+Bot.tweet(dish);
