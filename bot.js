@@ -13,7 +13,7 @@ var s = require("underscore.string");
       var ingredients = ["bacon", "chicken", "cream cheese", "Cool Whip", "mozzarella", "cheese", "beef", "havarti", "garlic", "fish", "white chocolate", "pork", "provolone", "cinnamon roll", "pepperoni", "ham", "roast beef", "clam", "calamari", "iceberg lettuce", "tri-tip", "shrimp", "catfish", "onion", "sausage", "butter", "potato", "salmon", "meatball", "turkey", "tilapia", "chili", "mac 'n cheese", "ground beef", "flounder", "sweet corn"];
       var structures = ["patty", "pie", "gravy", "pancake", "pizza", "hot dog", "fingers", "rings", "wings", "all the fixins", "burger", "nuggets", "sticks", "skins", "knots", "meatloaf", "fillet", "sliders", "steak", "doughnut", "s'mores", "nachos", "poppers", "wedges", "bites", "chowder", "salad", "biscuit", "spread", "tots", "fries", "scampi", "™", "®", "quesadillas", "fajitas"];
       var plates = ["sampler", "platter", "melt", "patty melt", "bowl", "scrambler", "meal", "combo", "wrap", "grinder", "sandwich", "po' boy", "slam", "plate", "bread", "biscuit", "waffle", "doughnut", "slurpee", "sundae"];
-      var conjunctions = ["with", "topped with", "tossed with", "served with", "on", "with a side of", "with a bucket of"];
+      var conjunctions = ["with", "topped with", "tossed with", "served with", "on", "with a side of", "with a bucket of", "with a bowl of"];
       var suffixes = ["-coated", "-stuffed", "-crusted", "-topped"];
       var dish = "";
     
