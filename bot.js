@@ -9,6 +9,7 @@ var s = require("underscore.string");
       var PLATE_PROB = 0.5;
       var SUFFIX_PROB = 0.2;
       var CONJUNCTION_PROB = 0.75;
+      var SERVES_PROB = 0.1;
           
       var adjs = ["fried", "build-your-own", "chargrilled", "pizza-flavored", "bold", "12-hr", "fiery", "Baja", "slow-cooked", "mesquite", "creamed", "skinnilicious", "jumbo", "smothered", "Million-dollar", "boneless", "Tuscan", "Italian", "chopped", "finger-lickin'", "refried", "southern", "original", "old-fashioned", "Dave's", "honey dijon", "unlimited", "chef's choice", "bottomless", "cheesy", "sloppy", "white cheddar", "low-fat", "pumpkin cream", "All-American", "Santa Fe", "supreme", "sizzling", "traditional", "bourbon", "buffalo", "3-alarm", "cajun", "cali", "crispy", "ultimate", "deep dish", "homestyle", "classic", "southwest", "meat-lovers", "extra", "glazed", "garden", "harvest cheddar", "jalapeño", "sour cream and onion", "ranch", "tangy", "zesty", "cool ranch", "queso", "all-beef", "$8", "$4", "barbecue ranch", "almond-crusted", "famous", "tex-mex", "deli-style", "corned", "whipped", "pepper jack", "100%", "double", "triple", "fresh", "beer-battered", "teriyaki", "Tabasco", "Country", "Grandma's", "chicken-fried", "grilled", "fiesta", "Nashville Hot", "endless", "New England"];
       var ingredients = ["bacon", "chicken", "cream cheese", "Cool Whip", "mozzarella", "cheese", "beef", "havarti", "garlic", "fish", "white chocolate", "pork", "provolone", "cinnamon roll", "pepperoni", "ham", "roast beef", "clam", "calamari", "iceberg lettuce", "tri-tip", "shrimp", "catfish", "onion", "sausage", "butter", "potato", "salmon", "meatball", "turkey", "tilapia", "chili", "mac 'n cheese", "ground beef", "flounder", "sweet corn", "coleslaw"];
@@ -17,6 +18,8 @@ var s = require("underscore.string");
       var frequent_conjunctions = ["with", "served with"];
       var infrequent_conjunctions = ["on", "with a side of", "with a bucket of", "with a bowl of"];
       var suffixes = ["-coated", "-stuffed", "-crusted", "-topped"];
+      var serves = ["[Serves 2-4]", "[Serves 2-6]", "[Serves 4-8]"];
+
       var dish = "";
     
     
@@ -52,6 +55,10 @@ var s = require("underscore.string");
      
       if (_.random(0, 100) < STRUCTURE_PROB * 100) {
         dish += _.sample(structures) + " ";
+      }
+      
+      if (_.random(0, 100) < SERVES_PROB * 100) {
+        dish += _.sample(serves) + " ";
       }
       
       return dish;
