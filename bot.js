@@ -18,7 +18,7 @@ var s = require("underscore.string");
       var frequent_conjunctions = ["with", "served with"];
       var infrequent_conjunctions = ["on", "with a side of", "with a bucket of", "with a bowl of"];
       var suffixes = ["-coated", "-stuffed", "-crusted", "-topped"];
-      var serves = ["[Serves 2-4]", "[Serves 2-6]", "[Serves 4-8]"];
+      var serves = ["[Serves 2-4]", "[Serves 3-6]", "[Serves 4-8]"];
 
       var dish = "";
     
