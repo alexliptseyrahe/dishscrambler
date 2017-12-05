@@ -8,12 +8,14 @@ var s = require("underscore.string");
       var STRUCTURE_PROB = 0.5;
       var PLATE_PROB = 0.5;
       var SUFFIX_PROB = 0.2;
-    
-    var adjs = ["fried", "build-your-own", "chargrilled", "pizza", "bold", "12-hr", "fiery", "Baja", "slow-cooked", "mesquite", "creamed", "skinnilicious", "jumbo", "smothered", "Million-dollar", "boneless", "Tuscan", "Italian", "chopped", "finger-lickin'", "refried", "southern", "original", "old-fashioned", "Dave's", "honey dijon", "unlimited", "chef's choice", "bottomless", "cheesy", "sloppy", "white cheddar", "low-fat", "pumpkin cream", "All-American", "Santa Fe", "supreme", "sizzling", "traditional", "bourbon", "buffalo", "3-alarm", "cajun", "cali", "crispy", "ultimate", "deep dish", "homestyle", "classic", "southwest", "meat-lovers", "extra", "glazed", "garden", "harvest cheddar", "jalapeño", "sour cream and onion", "ranch", "tangy", "zesty", "cool ranch", "queso", "all-beef", "$8", "$4", "barbecue ranch", "almond-crusted", "famous", "tex-mex", "deli-style", "corned", "whipped", "pepper jack", "100%", "double", "triple", "fresh", "beer-battered", "teriyaki", "Tabasco", "Country", "Grandma's", "chicken-fried", "grilled", "fiesta", "Nashville Hot", "endless", "New England"];
+      var CONJUNCTION_PROB = 0.75;
+          
+      var adjs = ["fried", "build-your-own", "chargrilled", "pizza", "bold", "12-hr", "fiery", "Baja", "slow-cooked", "mesquite", "creamed", "skinnilicious", "jumbo", "smothered", "Million-dollar", "boneless", "Tuscan", "Italian", "chopped", "finger-lickin'", "refried", "southern", "original", "old-fashioned", "Dave's", "honey dijon", "unlimited", "chef's choice", "bottomless", "cheesy", "sloppy", "white cheddar", "low-fat", "pumpkin cream", "All-American", "Santa Fe", "supreme", "sizzling", "traditional", "bourbon", "buffalo", "3-alarm", "cajun", "cali", "crispy", "ultimate", "deep dish", "homestyle", "classic", "southwest", "meat-lovers", "extra", "glazed", "garden", "harvest cheddar", "jalapeño", "sour cream and onion", "ranch", "tangy", "zesty", "cool ranch", "queso", "all-beef", "$8", "$4", "barbecue ranch", "almond-crusted", "famous", "tex-mex", "deli-style", "corned", "whipped", "pepper jack", "100%", "double", "triple", "fresh", "beer-battered", "teriyaki", "Tabasco", "Country", "Grandma's", "chicken-fried", "grilled", "fiesta", "Nashville Hot", "endless", "New England"];
       var ingredients = ["bacon", "chicken", "cream cheese", "Cool Whip", "mozzarella", "cheese", "beef", "havarti", "garlic", "fish", "white chocolate", "pork", "provolone", "cinnamon roll", "pepperoni", "ham", "roast beef", "clam", "calamari", "iceberg lettuce", "tri-tip", "shrimp", "catfish", "onion", "sausage", "butter", "potato", "salmon", "meatball", "turkey", "tilapia", "chili", "mac 'n cheese", "ground beef", "flounder", "sweet corn", "coleslaw"];
       var structures = ["patty", "pie", "gravy", "pizza", "hot dog", "fingers", "rings", "wings", "with all the fixins",  "nuggets", "sticks", "skins", "knots", "meatloaf", "sliders", "steak", "s'mores", "nachos", "poppers", "wedges", "bites", "chowder", "biscuit", "salad", "spread", "tots", "fries", "scampi", "™", "®", "waffle fries"];
       var plates = ["sampler", "platter", "melt", "pancake", "patty melt", "bowl", "scrambler", "meal", "combo", "wrap", "grinder","burger", "sandwich", "po' boy", "slam", "fillet", "plate", "bread", "biscuit", "waffle", "doughnut", "slurpee", "sundae", "quesadillas", "fajitas"];
-      var conjunctions = ["with", "served with", "on", "with a side of", "with a bucket of", "with a bowl of"];
+      var frequent_conjunctions = ["with", "served with"];
+      var infrequent_conjunctions = ["on", "with a side of", "with a bucket of", "with a bowl of"];
       var suffixes = ["-coated", "-stuffed", "-crusted", "-topped"];
       var dish = "";
     
@@ -32,9 +34,16 @@ var s = require("underscore.string");
       } else if (_.random(0, 100) < PLATE_PROB * 100) {
         dish += _.sample(plates) + " ";
       }
+ 
+     if (_.random(0, 100) < CONJUNCTION_PROB * 100) {
      
-      dish += _.sample(conjunctions) + " ";
+        dish += _.sample(frequent_conjunctions) + " ";
       
+      } else {
+        dish += _.sample(infrequent_conjunctions) + " ";
+
+      }
+     
       if (_.random(0, 100) < ADJ_PROB * 100) {
         dish += _.sample(adjs) + " ";
       }
