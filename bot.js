@@ -61,12 +61,12 @@ var s = require("underscore.string");
       
 function casing(myDish){
 
-	if (s.include(myDish, "™") || s.include(myDish, "®")) {
-		return myDish.charAt(0).toUpperCase() + myDish.substr(1).toLowerCase(); 
+//	if (s.include(myDish, "™") || s.include(myDish, "®")) {
+//		return myDish.charAt(0).toUpperCase() + myDish.substr(1).toLowerCase(); 
 	
-	} else {
+//	} else {
 		return s.capitalize(myDish);	
-		}
+//		}
 }
 
 var dish = generateDish();
