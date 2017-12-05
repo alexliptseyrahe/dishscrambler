@@ -51,7 +51,7 @@ var s = require("underscore.string");
 function casing(myDish){
 
 	if (s.include(myDish, "™") || s.include(myDish, "®")) {
-		return str.replace(/\w\S*/g, function(myDish){return myDish.charAt(0).toUpperCase() + myDish.substr(1).toLowerCase();});
+		return myDish.charAt(0).toUpperCase() + myDish.substr(1).toLowerCase();
 	
 	} else {
 		return s.capitalize(myDish);	
