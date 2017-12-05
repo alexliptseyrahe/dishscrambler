@@ -46,12 +46,23 @@ var s = require("underscore.string");
       }
       
       return dish;
-      }
+}
       
-      
-var dish = s.capitalize(generateDish()); 
+function casing(myDish){
 
-console.log(dish);     
+	if (s.include(myDish, "™") || s.include(myDish, "®")) {
+		return str.replace(/\w\S*/g, function(myDish){return myDish.charAt(0).toUpperCase() + myDish.substr(1).toLowerCase();});
+	
+	} else {
+		return s.capitalize(myDish);	
+		}
+}
+
+var dish = generateDish();
+dish = casing(dish); 
+
+console.log(dish);  
+   
 var Bot = new TwitterBot({
  consumer_key: process.env.BOT_CONSUMER_KEY,
  consumer_secret: process.env.BOT_CONSUMER_SECRET,
